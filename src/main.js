@@ -1,10 +1,11 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const server = http.createServer((request, response) => {
-  response.write('hello ~');
-  response.end();
-})
-
-server.listen(3000, ()=>{
+app.listen(port, () => {
   console.log('🌵 服务已启动！');
 });
+
+app.get('/', (resquest, response) => {
+  response.send('你好');
+})
